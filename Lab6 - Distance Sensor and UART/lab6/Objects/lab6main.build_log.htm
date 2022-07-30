@@ -1,0 +1,128 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.34.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ybu ybu, ybu, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.34.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.34.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      UL2CM3.DLL V1.163.9.0
+Dialog DLL:      TCM.DLL V1.48.0.0
+ 
+<h2>Project:</h2>
+C:\Users\Kerim\Desktop\Printf_UART_4C1294\lab6main.uvprojx
+Project File Date:  05/21/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+assembling startup_TM4C123.s...
+compiling UART.c...
+compiling lab6main.c...
+C:\Users\Kerim\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\tm4c123gh6pm.h(253): error:  #40: expected an identifier
+    __IO uint32_t  CR;                                /*!< GPIO Commit                                                           */
+lab6main.c(79): error:  #20: identifier "GPIO_PORTA_DATA_R" is undefined
+  	  GPIO_PORTA_DATA_R &= ~(1<<4); /* make trigger  pin high */
+lab6main.c(87): error:  #20: identifier "TIMER0_ICR_R" is undefined
+      TIMER0_ICR_R = 4;            /* clear timer0A capture flag */
+lab6main.c(88): error:  #20: identifier "TIMER0_RIS_R" is undefined
+      while((TIMER0_RIS_R & 4) == 0) ;    /* wait till captured */
+lab6main.c(89): error:  #20: identifier "GPIO_PORTB_DATA_R" is undefined
+  	  if(GPIO_PORTB_DATA_R & (1<<6)) /*check if rising edge occurs */
+lab6main.c(91): error:  #20: identifier "TIMER0_TAR_R" is undefined
+      lastEdge = TIMER0_TAR_R;     /* save the timestamp */
+lab6main.c(105): error:  #20: identifier "SYSCTL_RCGCTIMER_R" is undefined
+      SYSCTL_RCGCTIMER_R |= 1;     /* enable clock to Timer Block 0 */
+lab6main.c(106): error:  #20: identifier "SYSCTL_RCGCGPIO_R" is undefined
+      SYSCTL_RCGCGPIO_R |= 2;      /* enable clock to PORTB */
+lab6main.c(108): error:  #20: identifier "GPIO_PORTB_DIR_R" is undefined
+      GPIO_PORTB_DIR_R &= ~0x40;        /* make PB6 an input pin */
+lab6main.c(109): error:  #20: identifier "GPIO_PORTB_DEN_R" is undefined
+      GPIO_PORTB_DEN_R |= 0x40;         /* make PB6 as digital pin */
+lab6main.c(110): error:  #20: identifier "GPIO_PORTB_AFSEL_R" is undefined
+      GPIO_PORTB_AFSEL_R |= 0x40;       /* use PB6 alternate function */
+lab6main.c(111): error:  #20: identifier "GPIO_PORTB_PCTL_R" is undefined
+      GPIO_PORTB_PCTL_R &= ~0x0F000000;  /* configure PB6 for T0CCP0 */
+lab6main.c(116): error:  #20: identifier "GPIO_PORTA_DIR_R" is undefined
+  	  GPIO_PORTA_DIR_R |=(1<<4);         /* set PB2 as a digial output pin */
+lab6main.c(117): error:  #20: identifier "GPIO_PORTA_DEN_R" is undefined
+  	  GPIO_PORTA_DEN_R |=(1<<4);         /* make PB2 as digital pin */
+lab6main.c(119): error:  #20: identifier "TIMER0_CTL_R" is undefined
+      TIMER0_CTL_R &= ~1;          /* disable timer0A during setup */
+lab6main.c(120): error:  #20: identifier "TIMER0_CFG_R" is undefined
+      TIMER0_CFG_R = 4;            /* 16-bit timer mode */
+lab6main.c(121): error:  #20: identifier "TIMER0_TAMR_R" is undefined
+      TIMER0_TAMR_R = 0x17;        /* up-count, edge-time, capture mode */
+lab6main.c(133): error:  #20: identifier "SYSCTL_RCGCTIMER_R" is undefined
+      SYSCTL_RCGCTIMER_R |= 2;     /* enable clock to Timer Block 1 */
+lab6main.c(134): error:  #20: identifier "TIMER1_CTL_R" is undefined
+      TIMER1_CTL_R = 0;            /* disable Timer before initialization */
+lab6main.c(135): error:  #20: identifier "TIMER1_CFG_R" is undefined
+      TIMER1_CFG_R = 0x04;         /* 16-bit option */ 
+lab6main.c(136): error:  #20: identifier "TIMER1_TAMR_R" is undefined
+      TIMER1_TAMR_R = 0x02;        /* periodic mode and down-counter */
+lab6main.c(137): error:  #20: identifier "TIMER1_TAILR_R" is undefined
+      TIMER1_TAILR_R = 16 - 1;  /* TimerA interval load value reg */
+lab6main.c(138): error:  #20: identifier "TIMER1_ICR_R" is undefined
+      TIMER1_ICR_R = 0x1;          /* clear the TimerA timeout flag */
+lab6main.c(143): error:  #20: identifier "TIMER1_RIS_R" is undefined
+          while ((TIMER1_RIS_R & 0x1) == 0) ;      /* wait for TimerA timeout flag */
+lab6main.c(149): error:  #20: identifier "SYSCTL_RCGCUART_R" is undefined
+  	  SYSCTL_RCGCUART_R |= 0x20;  /* enable clock to UART5 */
+lab6main.c(150): error:  #20: identifier "SYSCTL_RCGCGPIO_R" is undefined
+      SYSCTL_RCGCGPIO_R |= 0x10;  /* enable clock to PORTE for PE4/Rx and RE5/Tx */
+lab6main.c(152): error:  #20: identifier "UART5_CTL_R" is undefined
+      UART5_CTL_R = 0;         /* UART5 module disbable */
+lab6main.c(153): error:  #20: identifier "UART5_IBRD_R" is undefined
+      UART5_IBRD_R= 104;      /* for 9600 baud rate, integer = 104 */
+lab6main.c(154): error:  #20: identifier "UART5_FBRD_R" is undefined
+      UART5_FBRD_R = 11;       /* for 9600 baud rate, fractional = 11*/
+lab6main.c(155): error:  #20: identifier "UART5_CC_R" is undefined
+      UART5_CC_R = 0;          /*select system clock*/
+lab6main.c: 0 warnings, 30 errors
+compiling system_TM4C123.c...
+".\Objects\lab6main.axf" - 30 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
+                Keil.TM4C_DFP.1.1.0
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  C:\Users\Kerim\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\Kerim\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: Keil::Device:Startup:1.0.1
+      Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\system_TM4C123.c
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
